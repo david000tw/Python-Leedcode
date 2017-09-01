@@ -1,0 +1,3 @@
+# Write your MySQL query statement below
+# 如果 sex =='m'  返回'f'  否則返回'm'
+UPDATE salary SET sex = IF(sex='m','f','m');   
