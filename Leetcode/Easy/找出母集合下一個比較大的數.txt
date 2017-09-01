@@ -1,0 +1,21 @@
+class Solution(object):
+    def nextGreaterElement(self, findNums, nums):
+        """
+        :type findNums: List[int]
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        ans=[]
+        #findNums 逐個讀取
+        for i in findNums:
+            #從nums.index(i)開始比較
+            for j in nums[nums.index(i):]:
+                if j>i:
+                    ans.append(j)
+                    #找到後跳出
+                    break
+            #都沒找到
+            if len(ans)==findNums.index(i):
+                ans.append(-1)
+        
+        return ans

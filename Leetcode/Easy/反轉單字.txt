@@ -1,0 +1,8 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        return ' '.join(s.split()[::-1])  #以空白分割從最後一個list開始放入,然後在整個字串反轉
+            

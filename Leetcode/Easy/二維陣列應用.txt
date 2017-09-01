@@ -1,0 +1,24 @@
+class Solution(object):
+    def matrixReshape(self, nums, r, c):
+        """
+        :type nums: List[List[int]]
+        :type r: int
+        :type c: int
+        :rtype: List[List[int]]
+        """
+        if r*c > len(nums)*len(nums[0]):
+            return nums
+        #把值放入一維陣列
+        ans = []
+        #創造全值為0的二維陣列  r*c
+        ans2 = [[0]*c for i in range(r)]
+        for i in nums:
+            for j in i:
+                ans.append(j)
+        #把一維陣列放入新的二維陣列
+        i=0
+        for a in range(r):
+            for b in range(c):
+                ans2[a][b] = ans[i]
+                i = i + 1
+        return ans2
