@@ -1,0 +1,14 @@
+class Solution(object):                      #算出2進位中有幾個地方不一樣
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        ans=0
+        while x or y:
+            ans+= (x%2)^(y%2)
+            x/=2
+            y/=2
+            
+        return ans

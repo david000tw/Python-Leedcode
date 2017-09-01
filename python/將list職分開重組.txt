@@ -1,0 +1,52 @@
+﻿        checkbox = request.POST.getlist('checkFailureModeCode')
+        print(checkbox)
+
+        #取出2個value  
+	
+        #FMCode = ''
+        FMCode_List = []
+        #FMCode_seqid = ''
+        FMCode_seqid_List = []
+        #last_code = 0
+
+		#['DFDC00000318|3', 'DFDC00000402|1']
+        #['DFDC00000318|3', 'DFDC00000402|1', 'DFDC00000566|5']
+
+		for i in checkbox:
+			j=str(i)
+			j.find('|')
+			FMCode_List.append(j[0:i])
+			FMCode_seqid_List.append(j[i+1:])
+		'''	
+		for i in checkbox:
+			for j in i:
+				if j!='|':
+					FMCode+=j
+				elif j=='|':
+					continue
+				else:
+					FMCode_seqid+=j 
+			FMCode_List.append(FMCode)
+			FMCode_seqid_List.append(FMCode_seqid)
+			FMCode=''
+			FMCode_seqid=''
+		'''
+	'''
+        for i in checkbox:
+            for j in i:
+                if last_code == 1:
+                    FMCode_seqid = j
+                    last_code = 0
+					             break
+                if j != '|':
+                    if last_code == 0:
+                        FMCode +=j
+                if j == '|':
+                    last_code = 1
+			FMCode_List.append(FMCode)
+            FMCode = ''
+            FMCode_seqid_List.append(FMCode_seqid)
+            FMCode_seqid = ''
+			print(FMCode_List)
+            print(FMCode_seqid_List)
+		'''
