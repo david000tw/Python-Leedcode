@@ -1,0 +1,22 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def findTarget(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: bool
+        """
+        if not root: return False
+        bfs, s = [root], set()         #bfs=[root]變成2維可用for  ,s=空集合
+        for i in bfs:
+            if k - i.val in s: return True      #目標與當前值相減的結果,在集合內代表相加為目標
+            s.add(i.val)
+            if i.left: bfs.append(i.left)      #加入左邊的樹
+            if i.right: bfs.append(i.right)    #加入右邊的樹
+        return False
